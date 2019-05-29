@@ -11,10 +11,6 @@ notifications:
   email:
     recipients:
       - mz2325@nyu.edu
-    on_success: always
-    on_failure: never
-
-    recipients:
       - dys256@nyu.edu
     on_success: always
-    on_failure: always  
+    on_failure: never
