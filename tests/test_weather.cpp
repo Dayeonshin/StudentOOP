@@ -26,7 +26,7 @@ int main() {
 
     string filenm;
     cout << "Input the name of the new readings file:\n";
-    cin >> filenm;
+    //cin >> filenm;
 
     get_wreadings(filenm, irkutsk);
 
