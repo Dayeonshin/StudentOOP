@@ -28,7 +28,7 @@ int main() {
     cout << "Input the name of the new readings file:\n";
     //cin >> filenm;
 
-    get_wreadings(filenm, irkutsk);
+    //get_wreadings(filenm, irkutsk);
 
     cout << irkutsk << endl;
 }
