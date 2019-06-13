@@ -15,8 +15,8 @@ bool operator== (const Complex& c1, const Complex& c2) {
 	return false;
 }
 
-ostream& operator<< (ostream& os, const Complex& c) {
-    os << setprecision(3) << c.real << showpos << c.imag << "i" << noshowpos << endl;
+ostream& operator<<(ostream& os, const Complex& c) {
+    os << setprecision(3) << c.real << showpos << c.imag << "i" << endl;
     return os;
 }
 
@@ -24,10 +24,10 @@ ostream& operator<< (ostream& os, const Complex& c) {
 /*
  * Read a `Complex` number from an input stream.
  * */
-istream& operator>> (istream& is, Complex& c) {
-	is >> c.real >> c.imag;
-	return is;
-}
+// istream& operator>>(istream& is, const Complex& c) {
+// 	is >> c.real >> c.imag;
+// 	return is;
+// }
 
 Complex::Complex(double real, double imag) : real(real), imag(imag) {}
 

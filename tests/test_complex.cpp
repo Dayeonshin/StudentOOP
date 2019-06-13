@@ -8,15 +8,15 @@ const bool DEBUG = true;
 
 
 int main() {
- //   cout << "Input a complex number:\n";
-    Complex c1(12, 13);
+    cout << "Input a complex number:\n";
+    Complex c1{12, 13};
     // get a complex from stdin:
-  /*  cin >> c1;
-    if(!cin)
-    {
-        cerr << "Bad input format\n";
-        exit(1);
-    }*/
+//    cin >> c1;
+//    if(!cin)
+//    {
+//        cerr << "Bad input format\n";
+//        exit(1);
+//    }
    if(DEBUG)
    {
        cout << "c1 = " << c1 << endl;
@@ -36,9 +36,6 @@ int main() {
    assert(c3.get_real() > 43.2);
    // see if `Complex` subtraction works:
    c3 -= c2;
-
-   cout << "C3: " << c3 << endl;
-   cout << "C1: " << c1 << endl;
    assert(c3 == c1);
 
    Complex c4 = Complex();

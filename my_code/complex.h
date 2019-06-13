@@ -4,7 +4,7 @@
 
 class Complex {
     friend std::ostream& operator<< (std::ostream& os, const Complex& c);
-    friend std::istream& operator>> (std::istream& is, Complex& c);
+    // friend std::istream& operator>> (std::istream& is, const Complex& c);
 
     /*
      * The equality operator should be a friend since it is binary
@@ -86,7 +86,7 @@ class Complex {
 
 
 bool operator== (const Complex& c1, const Complex& c2);
-bool operator!= (const Complex& c1, const Complex& c2);
+//bool operator!= (const Complex& c1, const Complex& c2);
 /*
  * `+` adds real to real, and complex to complex.
  * */
