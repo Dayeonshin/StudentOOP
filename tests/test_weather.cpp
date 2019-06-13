@@ -39,8 +39,8 @@ int main() {
     string fnm = "happy.gif!";
     Image img = Image(100, 100, fnm);
     for (int i = 1; i < 100; i++) {
-        // make_images1(img);
-        // make_images2(img);
+        make_images1(img);
+        make_images2(img);
     }
     exit(0);
 

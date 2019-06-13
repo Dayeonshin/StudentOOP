@@ -70,9 +70,9 @@ string Image::display(std::string s) {
 //}
 
 
-/*double WReading::get_tempF() {
+//double WReading::get_tempF() {
  //   return (temperature * C_TO_F) + 32;
-}
+//}
 
 
 /*
