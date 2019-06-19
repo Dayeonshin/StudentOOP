@@ -56,12 +56,8 @@ void Image::copy_fields(const Image& img2) {
     /*
      * Setting `display() = 0` here makes this an abstract
      * class that can't be implemented.
-     * */
-string Image::display(std::string s) {
-    return "Displaying image " + s;
-}
-
-
+     * 
+     */
 
 //Date::Date(int d, int m, int y) {
   //  day = d;
@@ -88,3 +84,34 @@ string Image::display(std::string s) {
 //}
 
 //
+
+virtual Image::display(std::string s) {
+    return "Displaying image " + s;
+}
+
+class Gif : public Image {
+  public:
+  Gif(int w, int h, std::string flnm)
+    : Image(w, h, flnm) {}
+    void display() {
+      cout << "This is gif file" << endl;
+  }
+}
+
+class Jpeg : public Image {
+  public:
+  Jpeg(int w, int h, std::string flnm)
+    : Image(w, h, flnm) {}
+    void display() {
+      cout << "This is Jpeg file" << endl;
+  }
+}
+
+class Png : public Image {
+  public:
+  Png(int w, int h, std::string flnm)
+    : Image(w, h, flnm) {}
+    void display() {
+      cout << "This is Png file" << endl;
+  }
+}

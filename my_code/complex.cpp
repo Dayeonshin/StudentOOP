@@ -24,7 +24,7 @@ ostream& operator<<(ostream& os, const Complex& c) {
 /*
  * Read a `Complex` number from an input stream.
  * */
-// istream& operator>>(istream& is, const Complex& c) {
+// istream& operator>>(istream& is, Complex& c) {
 // 	is >> c.real >> c.imag;
 // 	return is;
 // }

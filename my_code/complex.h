@@ -4,7 +4,7 @@
 
 class Complex {
     friend std::ostream& operator<< (std::ostream& os, const Complex& c);
-    // friend std::istream& operator>> (std::istream& is, const Complex& c);
+    // friend std::istream& operator>> (std::istream& is, Complex& c);
 
     /*
      * The equality operator should be a friend since it is binary

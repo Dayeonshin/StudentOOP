@@ -4,8 +4,11 @@
 using namespace std;
 
 void print_vector(const MyVec& v) {
-	for (int i = 0; i < v.size(); i++)
-		cout << v[i];
+	for (int i = 0; i < v.size(); i++) {
+		cout << v[i] << " ";
+	}
+	cout << endl;
+
 }
 
 
@@ -16,10 +19,11 @@ MyVec::MyVec() {
 }
 
 MyVec::MyVec(const MyVec& v2) {
+	sz = v2.sz;
 	capacity = v2.capacity;
-	int* new_data = new int[capacity];
+	data = new int[capacity];
 	for (int i = 0; i < v2.size(); i++) {
-		new_data[i] = data[i];
+		data[i] = v2.data[i];
 	}
 }
 
@@ -29,11 +33,11 @@ MyVec::~MyVec() {
 
 MyVec& MyVec::operator=(const MyVec& v2) {
 	if (this != &v2) {
-		if (sz != v2.sz) {
 			delete[] data;
 			sz = v2.sz;
-			data = new int[sz];
-		}
+			capacity = v2.capacity;
+
+			data = new int[capacity];
 		for (int i = 0; i < v2.size(); i++)
 			data[i] = v2.data[i];
 	}
@@ -48,10 +52,10 @@ MyVec& MyVec::operator=(const MyVec& v2) {
 bool operator==(MyVec& v1, MyVec& v2) {
 	if (v1.size() == v2.size()) {
 		for (int i = 0; i < v2.size(); i++) {
-			if(v1[i] == v2[i])
-				return true;
+			if(v1[i] != v2[i])
+				return false;
 		}
-		return false;
+		return true;
 	}
 	else {
 		return false;
