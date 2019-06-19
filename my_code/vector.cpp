@@ -75,6 +75,7 @@ void MyVec::push_back(int val) {
 		delete[] data;
 		data = new_data;
 	}
+
 	data[sz++] = val;
 }
 
