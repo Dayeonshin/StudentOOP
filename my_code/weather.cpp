@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//const double C_TO_F = 9 / 5;
+const double C_TO_F = 9 / 5;
 
 Image::Image(int w, int h, std::string flnm)
     : width(w), height(h)
@@ -13,7 +13,6 @@ Image::Image(int w, int h, std::string flnm)
     image_buf = new char[image_sz()];
 }
 
-// copy constructor:
 Image::Image(const Image& img2) {
 	height = img2.height;
 	width = img2.width;
@@ -52,66 +51,89 @@ int Image::image_sz() {
 void Image::copy_fields(const Image& img2) {
 }
 
-
-    /*
-     * Setting `display() = 0` here makes this an abstract
-     * class that can't be implemented.
-     * 
-     */
-
-//Date::Date(int d, int m, int y) {
-  //  day = d;
-    //month = m;
-    //year = y;
-//}
-
-
-//double WReading::get_tempF() {
- //   return (temperature * C_TO_F) + 32;
-//}
-
-
-/*
- * A constructor for weather class.
- * */
-//Weather::Weather(std::string nm, GPS loc) :
-  //  station_nm(nm), my_loc(loc) {
-//}
-
-
-//string Weather::get_name() const {
-  //  return station_nm;
-//}
-
-//
-
-virtual Image::display(std::string s) {
-    return "Displaying image " + s;
+Date::Date(int d, int m, int y) {
+   day = d;
+    month = m;
+    year = y;
 }
 
-class Gif : public Image {
-  public:
-  Gif(int w, int h, std::string flnm)
-    : Image(w, h, flnm) {}
-    void display() {
-      cout << "This is gif file" << endl;
+
+double WReading::get_tempF() {
+   return (temperature * C_TO_F) + 32;
+}
+
+Weather::Weather(std::string nm, GPS loc) :
+   station_nm(nm), my_loc(loc) {
+}
+
+
+string Weather::get_name() const {
+   return station_nm;
+}
+
+void Png::display() {
+  cout << "png display" << endl;
+}
+
+void Jpeg::display() {
+  cout << "jpeg display" << endl;
+}
+
+
+void Gif::display() {
+  cout << "gif display" << endl;
+}
+
+void Image::display() {
+    cout << "image display" << endl;
+}
+
+void WReading::display_image() {
+  image->display();
+}
+
+void Weather::display_images() {
+    for(int i = 0; i < wreadings.size(); i++){
+      wreadings[i].display_image();
+    }
+}
+
+ostream& operator<<(ostream& os, const Weather& w) {
+    int r = w.get_rating();
+    os << w.station_nm << ": rating " << r << w.my_loc << endl;
+    for(WReading a : w.wreadings) {
+      os << a;
+    }
+    return os;
   }
-}
 
-class Jpeg : public Image {
-  public:
-  Jpeg(int w, int h, std::string flnm)
-    : Image(w, h, flnm) {}
-    void display() {
-      cout << "This is Jpeg file" << endl;
+  ostream& operator<<(std::ostream& os, const GPS& gps) {
+    os << gps.latitude << " " << gps.longitude << endl;
+    return os;
   }
-}
 
-class Png : public Image {
-  public:
-  Png(int w, int h, std::string flnm)
-    : Image(w, h, flnm) {}
-    void display() {
-      cout << "This is Png file" << endl;
+  ostream& operator<<(ostream& os, const Date& d) {
+    os << d.month << "/" << d.day << "/" << d.year << endl;
+    return os;}
+
+    ostream& operator<<(ostream& os, const WReading& r) {
+    os << "Date: " << r.date << " Temperature: " << r.temperature << "Humidity: " << r.humidity << "Windspeed: " << r.windspeed << endl;
+    return os;
   }
-}
+
+  int Weather::get_rating() const{
+    return rating;
+  }
+
+void Weather::add_reading(WReading wr){
+    wreadings.push_back(wr);
+  }
+
+Jpeg::Jpeg(int w, int h, std::string flnm)
+    : Image(width, height, flnm), width(w), height(h){}
+
+Gif::Gif(int w, int h, std::string flnm)
+    : Image(width, height, flnm), width(w), height(h){}
+
+Png::Png(int w, int h, std::string flnm)
+    : Image(width, height, flnm), width(w), height(h){}

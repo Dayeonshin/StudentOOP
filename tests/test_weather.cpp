@@ -9,7 +9,7 @@ using namespace std;
 void get_wreadings(string filenm, Weather& w) {
     Image* base = new Image(100, 100, "base.img");
     Gif* gif = new Gif(100, 100, "file.gif");
-    Jpeg* jpeg = new Jpeg(100, 100, "file.jpg", LOW);
+    Jpeg* jpeg = new Jpeg(100, 100, "file.jpg");
     Png* png = new Png(100, 100, "file.png");
 
     vector<Image*> images = {base, gif, jpeg, png, nullptr};
@@ -43,11 +43,8 @@ void make_images2(Image& img1) {
     }
 }
 
-
 int main() {
-
-    /*
-    Image img = Image(100, 100, fnm);
+/*    Image img = Image(100, 100, fnm);
     for (int i = 1; i < 100; i++) {
         // make_images1(img);
         make_images2(img);
@@ -62,8 +59,7 @@ int main() {
     test_temps = WReading(Date(1, 1, 2019), 100, 50, 10);
     freezingF = test_temps.get_tempF();
     assert(freezingF == 212.0);
-    */
-
+*/
     Weather irkutsk = Weather("Irkutsk", GPS(46.3, 67.2));
 
     string filenm;
